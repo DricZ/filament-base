@@ -64,7 +64,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 ApiServicePlugin::make(),
-
+                FilamentJobsMonitorPlugin::make()
             ]);
     }
 }
