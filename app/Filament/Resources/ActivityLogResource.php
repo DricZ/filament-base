@@ -17,7 +17,9 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = ActivityLog::class;
 
-    protected static ?string $navigationGroup = 'User';
+    protected static ?string $navigationParentItem = 'Users';
+
+    protected static ?string $navigationGroup = 'Settings';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

@@ -25,7 +25,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class RoleResource extends Resource
 {
+    protected static ?string $navigationParentItem = 'Users';
 
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function isScopedToTenant(): bool
     {
@@ -50,11 +52,6 @@ class RoleResource extends Resource
     public static function getLabel(): string
     {
         return __('filament-spatie-roles-permissions::filament-spatie.section.role');
-    }
-
-    public static function getNavigationGroup(): ?string
-    {
-        return __('Master');
     }
 
     public static function getNavigationSort(): ?int

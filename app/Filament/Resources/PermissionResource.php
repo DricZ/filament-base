@@ -28,6 +28,10 @@ use Spatie\Permission\Models\Role;
 
 class PermissionResource extends Resource
 {
+    protected static ?string $navigationParentItem = 'Users';
+
+    protected static ?string $navigationGroup = 'Settings';
+
     public static function isScopedToTenant(): bool
     {
         return config('filament-spatie-roles-permissions.scope_to_tenant', true);
@@ -51,11 +55,6 @@ class PermissionResource extends Resource
     public static function getLabel(): string
     {
         return __('filament-spatie-roles-permissions::filament-spatie.section.permission');
-    }
-
-    public static function getNavigationGroup(): ?string
-    {
-        return __('Master');
     }
 
     public static function getNavigationSort(): ?int
