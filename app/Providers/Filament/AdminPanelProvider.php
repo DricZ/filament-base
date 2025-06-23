@@ -22,7 +22,7 @@ use App\Filament\Forms\Components\QrScanner;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Rupadana\ApiService\ApiServicePlugin;
-
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -65,7 +65,8 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 ApiServicePlugin::make(),
-                FilamentJobsMonitorPlugin::make()
+                FilamentJobsMonitorPlugin::make(),
+                FilamentSpatieLaravelBackupPlugin::make()
             ]);
     }
 }
