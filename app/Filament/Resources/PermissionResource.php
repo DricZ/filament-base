@@ -1,12 +1,12 @@
 <?php
 
-namespace Althinect\FilamentSpatieRolesPermissions\Resources;
+namespace App\Filament\Resources;
 
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\Pages\CreatePermission;
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\Pages\EditPermission;
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\Pages\ListPermissions;
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\Pages\ViewPermission;
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\RelationManager\RoleRelationManager;
+use App\Filament\Resources\PermissionResource\Pages\CreatePermission;
+use App\Filament\Resources\PermissionResource\Pages\EditPermission;
+use App\Filament\Resources\PermissionResource\Pages\ListPermissions;
+use App\Filament\Resources\PermissionResource\Pages\ViewPermission;
+use App\Filament\Resources\PermissionResource\RelationManager\RoleRelationManager;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
@@ -39,7 +39,7 @@ class PermissionResource extends Resource
 
     public static function getNavigationIcon(): ?string
     {
-        return  config('filament-spatie-roles-permissions.icons.permission_navigation');
+        return config('filament-spatie-roles-permissions.icons.permission_navigation');
     }
 
     public static function shouldRegisterNavigation(): bool
@@ -59,7 +59,7 @@ class PermissionResource extends Resource
 
     public static function getNavigationSort(): ?int
     {
-        return  config('filament-spatie-roles-permissions.sort.permission_navigation');
+        return config('filament-spatie-roles-permissions.sort.permission_navigation');
     }
 
     public static function getPluralLabel(): string
@@ -151,7 +151,7 @@ class PermissionResource extends Resource
                             $query->where(function (Builder $query) use ($data) {
                                 foreach ($data['values'] as $key => $value) {
                                     if ($value) {
-                                        $query->orWhere('name', 'like', eval(config('filament-spatie-roles-permissions.model_filter_key')));
+                                        $query->orWhere('name', 'like', eval (config('filament-spatie-roles-permissions.model_filter_key')));
                                     }
                                 }
                             });
@@ -164,9 +164,9 @@ class PermissionResource extends Resource
                     ->multiple()
                     ->options(config('filament-spatie-roles-permissions.guard_names')),
             ])->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
-            ])
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\ViewAction::make(),
+                ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
@@ -188,9 +188,9 @@ class PermissionResource extends Resource
             ])
             ->emptyStateActions(
                 config('filament-spatie-roles-permissions.should_remove_empty_state_actions.permissions') ? [] :
-                    [
-                        Tables\Actions\CreateAction::make()
-                    ]
+                [
+                    Tables\Actions\CreateAction::make()
+                ]
             );
     }
 

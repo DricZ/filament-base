@@ -1,8 +1,8 @@
 <?php
 
-namespace Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\Pages;
+namespace App\Filament\Resources\PermissionResource\Pages;
 
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource;
+use App\Filament\Resources\PermissionResource;
 use Filament\Resources\Pages\EditRecord;
 
 class EditPermission extends EditRecord

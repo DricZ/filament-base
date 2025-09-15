@@ -1,6 +1,6 @@
 <?php
 
-namespace Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\RelationManager;
+namespace App\Filament\Resources\RoleResource\RelationManager;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -63,15 +63,15 @@ class UserRelationManager extends RelationManager
             ->filters([
 
             ])->headerActions([
-                AttachAction::make()
-                    ->recordSelectSearchColumns(config('filament-spatie-roles-permissions.user_name_searchable_columns', ['name']))
-                    ->recordTitle(function ($record) {
-                        return $record->getAttributeValue(config('filament-spatie-roles-permissions.user_name_column', 'name'));
-                    }),
-            ])->actions([
-                DetachAction::make(),
-            ])->bulkActions([
-                //
-            ]);
+                    AttachAction::make()
+                        ->recordSelectSearchColumns(config('filament-spatie-roles-permissions.user_name_searchable_columns', ['name']))
+                        ->recordTitle(function ($record) {
+                            return $record->getAttributeValue(config('filament-spatie-roles-permissions.user_name_column', 'name'));
+                        }),
+                ])->actions([
+                    DetachAction::make(),
+                ])->bulkActions([
+                    //
+                ]);
     }
 }

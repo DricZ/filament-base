@@ -1,13 +1,13 @@
 <?php
 
-namespace Althinect\FilamentSpatieRolesPermissions\Resources;
+namespace App\Filament\Resources;
 
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\Pages\CreateRole;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\Pages\EditRole;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\Pages\ListRoles;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\Pages\ViewRole;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\RelationManager\PermissionRelationManager;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource\RelationManager\UserRelationManager;
+use App\Filament\Resources\RoleResource\Pages\CreateRole;
+use App\Filament\Resources\RoleResource\Pages\EditRole;
+use App\Filament\Resources\RoleResource\Pages\ListRoles;
+use App\Filament\Resources\RoleResource\Pages\ViewRole;
+use App\Filament\Resources\RoleResource\RelationManager\PermissionRelationManager;
+use App\Filament\Resources\RoleResource\RelationManager\UserRelationManager;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
@@ -36,7 +36,7 @@ class RoleResource extends Resource
 
     public static function getNavigationIcon(): ?string
     {
-        return  config('filament-spatie-roles-permissions.icons.role_navigation');
+        return config('filament-spatie-roles-permissions.icons.role_navigation');
     }
 
     public static function shouldRegisterNavigation(): bool
@@ -56,7 +56,7 @@ class RoleResource extends Resource
 
     public static function getNavigationSort(): ?int
     {
-        return  config('filament-spatie-roles-permissions.sort.role_navigation');
+        return config('filament-spatie-roles-permissions.sort.role_navigation');
     }
 
     public static function getPluralLabel(): string
@@ -111,7 +111,7 @@ class RoleResource extends Resource
 
                                 Select::make(config('permission.column_names.team_foreign_key', 'team_id'))
                                     ->label(__('filament-spatie-roles-permissions::filament-spatie.field.team'))
-                                    ->hidden(fn() => ! config('permission.teams', false) || Filament::hasTenancy())
+                                    ->hidden(fn() => !config('permission.teams', false) || Filament::hasTenancy())
                                     ->options(
                                         fn() => config('filament-spatie-roles-permissions.team_model', App\Models\Team::class)::pluck('name', 'id')
                                     )
@@ -154,9 +154,9 @@ class RoleResource extends Resource
             ])
             ->emptyStateActions(
                 config('filament-spatie-roles-permissions.should_remove_empty_state_actions.roles') ? [] :
-                    [
-                        Tables\Actions\CreateAction::make()
-                    ]
+                [
+                    Tables\Actions\CreateAction::make()
+                ]
             );
     }
 

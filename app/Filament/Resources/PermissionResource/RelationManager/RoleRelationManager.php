@@ -1,6 +1,6 @@
 <?php
 
-namespace Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource\RelationManager;
+namespace App\Filament\Resources\PermissionResource\RelationManager;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -32,7 +32,7 @@ class RoleRelationManager extends RelationManager
                     ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
                 TextInput::make('guard_name')
                     ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
-                    ->visible(fn () => config('filament-spatie-roles-permissions.should_show_guard', true)),
+                    ->visible(fn() => config('filament-spatie-roles-permissions.should_show_guard', true)),
 
             ]);
     }
@@ -49,7 +49,7 @@ class RoleRelationManager extends RelationManager
                 TextColumn::make('guard_name')
                     ->searchable()
                     ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
-                    ->visible(fn () => config('filament-spatie-roles-permissions.should_show_guard', true)),
+                    ->visible(fn() => config('filament-spatie-roles-permissions.should_show_guard', true)),
             ])
             ->filters([
                 //

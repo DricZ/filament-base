@@ -19,14 +19,3 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api')->name('refresh');
     Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api')->name('me');
 });
-
-Route::group([
-    'middleware' => 'api',
-    'prefix' => '/member'
-], function ($router) {
-    Route::post('/register', [AuthMController::class, 'register'])->name('register');
-    Route::post('/login', [AuthMController::class, 'login'])->name('login');
-    Route::post('/logout', [AuthMController::class, 'logout'])->middleware('auth:api')->name('logout');
-    Route::post('/refresh', [AuthMController::class, 'refresh'])->middleware('auth:api')->name('refresh');
-    Route::post('/me', [AuthMController::class, 'me'])->middleware('auth:api')->name('me');
-});
